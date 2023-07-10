@@ -39,19 +39,25 @@ passwordInput.onkeyup = () => {
 
 submitBtn.onclick = () => {
 let isFirstNameOK = false;
+let isLastNameOK = false;
+let emailOK = false;
+let passwordOK = false;
 
   if (firstNameInput.value === ""){
     firstNameInput.classList.add("is-invalid");
   }else {
     firstNameInput.classList.add("is-valid");
+    isFirstNameOK = true;
   }
   if (lastNameInput.value === ""){
     lastNameInput.classList.add("is-invalid");
   }else {
     lastNameInput.classList.add("is-valid");
+    isLastNameOK = true;
   }
   if (true === validateEmail(emailInput.value)){
     emailInput.classList.add("is-valid");
+    emailOK = true;
   }else {
     emailInput.classList.add("is-invalid");
   }
@@ -59,10 +65,12 @@ let isFirstNameOK = false;
     passwordInput.classList.add("is-invalid");
   }else {
     passwordInput.classList.add("is-valid");
+    passwordOK = true;
   }
 
-  if(isFirstNameOK){
+  if(isFirstNameOK && isLastNameOK && emailOK && passwordOK){
     alert("Registered successfully");
   }
+
 
 };
